@@ -64,6 +64,36 @@ class Target extends \yii\log\Target
 
     /**
      * @inheritDoc
+     * Cookies and session data are not sent to Slack by default.
+     * @since 2.1
+     */
+    public $logVars = [
+        '_GET',
+        '_POST',
+        '_FILES',
+        '_SERVER',
+    ];
+
+    /**
+     * @inheritDoc
+     * Credentials, cookies and secrets are masked by default.
+     * @since 2.1
+     */
+    public $maskVars = [
+        '_SERVER.HTTP_AUTHORIZATION',
+        '_SERVER.HTTP_PROXY_AUTHORIZATION',
+        '_SERVER.HTTP_COOKIE',
+        '_SERVER.HTTP_X_API_KEY',
+        '_SERVER.PHP_AUTH_USER',
+        '_SERVER.PHP_AUTH_PW',
+        '*password*',
+        '*secret*',
+        '*token*',
+        '*._csrf',
+    ];
+
+    /**
+     * @inheritDoc
      */
     public function __construct($config = [])
     {

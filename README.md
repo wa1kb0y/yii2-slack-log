@@ -45,6 +45,10 @@ Then set the following Yii 2 configuration parameters:
 ],
 ```
 
+By default `$_COOKIE` and `$_SESSION` are not sent and credentials, cookies, passwords, secrets, tokens and CSRF
+values are masked (see `logVars` and `maskVars`). Extend `maskVars` with your own sensitive fields, e.g.
+`'*card_number*'`.
+
 Sample config:
 
 ```php
